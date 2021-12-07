@@ -22,12 +22,12 @@ def part2(data):
 def breeding(swarm, days):
     while days:
         new = defaultdict(int)
-        for k in swarm:
+        for k, v in swarm.items():
             if k > 0:
-                new[k - 1] += swarm[k]
+                new[k - 1] += v
             else:
-                new[6] += swarm[k]
-                new[8] += swarm[k]
+                new[6] += v
+                new[8] += v
         swarm = new
         days -= 1
     return swarm
