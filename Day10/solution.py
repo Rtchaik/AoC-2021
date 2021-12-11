@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 def solveDay(myFile):
     data = parseData(myFile)
     part1_result = part1(data)
@@ -31,12 +34,7 @@ def part1(data):
 
 
 def part2(lines):
-    scores = {'(': 1, '[': 2, '{': 3, '<': 4}
-    result = []
-    for line in lines:
-        points = 0
-        for ch in reversed(line):
-            points = points * 5 + scores[ch]
-        result.append(points)
-    final = sorted(result)
+    final = sorted(
+        reduce(lambda points, score: points * 5 + '([{<'.index(score) + 1,
+               reversed(line), 0) for line in lines)
     return final[len(final) // 2]
