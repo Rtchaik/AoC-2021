@@ -26,7 +26,7 @@ def part2(dots, folds):
     for fold in folds:
       dots = part1(dots,fold)
     maxes = ([max(x)+1 for x in zip(*dots)])
-    code = [['.' for x in range(maxes[0])] for y in range(maxes[1])]
+    code = [[' ' for x in range(maxes[0])] for y in range(maxes[1])]
     for dot in dots:
       code[dot[1]][dot[0]]='#'
     for line in code:
